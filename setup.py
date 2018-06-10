@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 NAME = "faxplus-api"
-VERSION = "0.2"
+VERSION = "0.3"
 # To install the library, run the following
 #
 # python setup.py install
@@ -18,7 +18,7 @@ setup(
     description="FAX.PLUS REST API",
     author="faxplus",
     author_email="info@fax.plus",
-    url="https://github.com/faxplus/faxplus-python",
+    url="https://github.com/alohi/faxplus-python",
     keywords=["faxplus", "fax.plus", "alohi"],
     install_requires=REQUIRES,
     packages=find_packages(),
