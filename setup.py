@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 NAME = "faxplus-api"
-VERSION = "0.1"
+VERSION = "0.2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -39,6 +39,9 @@ setup(
         "Topic :: Communications :: Fax",
     ],
     long_description="""\
-    This is the fax.plus API v1 developed for third party developers and organizations. In order to have a better coding experience with this API, let&#39;s quickly go through some points:&lt;br /&gt;&lt;br /&gt; - This API assumes **/accounts** as an entry point with the base url of **https://restapi.fax.plus/v1**. &lt;br /&gt;&lt;br /&gt; - This API treats all date and times sent to it in requests as **UTC**. Also, all dates and times returned in responses are in **UTC**&lt;br /&gt;&lt;br /&gt; - Once you have an access_token, you can easily send a request to the resource server with the base url of **https://restapi.fax.plus/v1** to access your permitted resources. As an example to get the user&#39;s profile info you would send a request to **https://restapi.fax.plus/v1/accounts/self** when **Authorization** header is set to \&quot;Bearer YOUR_ACCESS_TOKEN\&quot; and custom header of **x-fax-clientid** is set to YOUR_CLIENT_ID  # noqa: E501
+    This is the fax.plus API v1 developed for third party developers and organizations. In order to have a better coding experience with this API, let's quickly go through some points:
+    - This API assumes **/accounts** as an entry point with the base url of **https://restapi.fax.plus/v1**.
+    - This API treats all date and times sent to it in requests as **UTC**. Also, all dates and times returned in responses are in **UTC**
+    - Once you have an access_token, you can easily send a request to the resource server with the base url of **https://restapi.fax.plus/v1** to access your permitted resources. As an example to get the user's profile info you would send a request to **https://restapi.fax.plus/v1/accounts/self** when **Authorization** header is set to "Bearer YOUR_ACCESS_TOKEN" and custom header of **x-fax-clientid** is set to YOUR_CLIENT_ID
     """
 )
