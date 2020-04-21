@@ -1,8 +1,18 @@
 # coding: utf-8
-from setuptools import setup, find_packages
+
+"""
+    FAX.PLUS REST API
+
+    OpenAPI spec version: 1.2.0
+    Contact: info@fax.plus
+"""
+
+from setuptools import setup, find_packages  # noqa: H301
+from os import path
+import re
 
 NAME = "faxplus-api"
-VERSION = "0.3"
+VERSION = "1.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -12,36 +22,23 @@ VERSION = "0.3"
 
 REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+long_description = re.sub(r'### Documentation for API Endpoints.*#', '#', long_description, flags=re.S)
+long_description = re.sub(r'### Documentation For Models.*#', '#', long_description, flags=re.S)
+
 setup(
     name=NAME,
     version=VERSION,
     description="FAX.PLUS REST API",
-    author="faxplus",
+    author="Alohi SA",
     author_email="info@fax.plus",
     url="https://github.com/alohi/faxplus-python",
-    keywords=["faxplus", "fax.plus", "alohi"],
+    keywords=["Swagger", "FAX.PLUS REST API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    zip_safe=False,
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        "Topic :: Communications :: Fax",
-    ],
-    long_description="""\
-    This is the fax.plus API v1 developed for third party developers and organizations. In order to have a better coding experience with this API, let's quickly go through some points:
-    - This API assumes **/accounts** as an entry point with the base url of **https://restapi.fax.plus/v1**.
-    - This API treats all date and times sent to it in requests as **UTC**. Also, all dates and times returned in responses are in **UTC**
-    - Once you have an access_token, you can easily send a request to the resource server with the base url of **https://restapi.fax.plus/v1** to access your permitted resources. As an example to get the user's profile info you would send a request to **https://restapi.fax.plus/v1/accounts/self** when **Authorization** header is set to "Bearer YOUR_ACCESS_TOKEN" and custom header of **x-fax-clientid** is set to YOUR_CLIENT_ID
-    """
+    long_description=long_description,
+    long_description_content_type='text/markdown'
 )

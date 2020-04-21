@@ -1,32 +1,33 @@
-# Fax
+# faxplus.Fax
+
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**comment** | **str** |  | [optional] 
-**cost** | **int** |  | [optional] 
-**direction** | **str** |  | [optional] 
-**from_number** | **str** |  | [optional] 
-**status** | **str** |  | [optional] 
-**scheduled_time** | **str** |  | [optional] 
+**comment** | **str** | Free-form comment | 
+**cost** | **int** | Fax cost in the user currency | [optional] 
+**cost_details** | [**FaxCostDetails**](FaxCostDetails.md) |  | 
 **description** | **str** |  | [optional] 
-**is_spam** | **bool** |  | [optional] 
-**submit_time** | **str** |  | [optional] 
-**cost_details** | [**FaxCostDetails**](FaxCostDetails.md) |  | [optional] 
-**header** | **str** |  | [optional] 
-**file** | **str** |  | [optional] 
-**file_name** | **str** |  | [optional] 
-**retry_delay** | **int** |  | [optional] 
-**max_retry** | **int** |  | [optional] 
-**pages** | **int** |  | [optional] 
-**start_time** | **str** |  | [optional] 
-**to** | **str** |  | [optional] 
+**direction** | [**FaxDirection**](FaxDirection.md) |  | [optional] 
 **duration** | **int** |  | [optional] 
-**last_update** | **str** |  | [optional] 
+**file** | **str** |  | [optional] 
+**file_name** | **str** | File name | [optional] 
+**from_number** | **str** | Sender number. Might be a userId for faxes sent or received with free accounts | [optional] 
+**header** | **str** |  | [optional] 
+**id** | **str** | Fax ID | 
 **is_read** | **bool** |  | [optional] 
-**owner_id** | **str** |  | [optional] 
+**is_spam** | **bool** | True if the fax is marked as spam | [optional] 
+**last_update** | **str** |  | [optional] 
+**max_retry** | **int** | Maximum number of retries | [optional] 
+**owner_id** | **str** | User ID of the fax owner | 
+**pages** | **int** | Number of pages in the fax | 
+**retry_delay** | **int** | Delay between two retries | [optional] 
+**scheduled_time** | **str** |  | [optional] 
+**start_time** | **str** |  | [optional] 
+**status** | [**FaxStatus**](FaxStatus.md) |  | 
+**submit_time** | **str** | Time when the fax was submitted for sending. For outgoing faxes only | [optional] 
+**to** | **str** | Fax destination number. Might be a userId for faxes sent or received with free accounts | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

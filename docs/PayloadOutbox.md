@@ -1,15 +1,16 @@
-# PayloadOutbox
+# faxplus.PayloadOutbox
+Model for creating new outbound fax
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**to** | **list[str]** |  | [optional] 
-**from_number** | **str** |  | [optional] 
-**files** | **list[str]** |  | [optional] 
-**options** | [**PayloadOutboxOptions**](PayloadOutboxOptions.md) |  | [optional] 
-**send_time** | **str** |  | [optional] 
+**from_number** | **str** | Number to use for sending the fax | 
+**to** | **list[str]** | List of fax destination numbers | 
+**files** | **list[str]** | List of file names to send. Files should be uploaded beforehand. | 
 **comment** | [**PayloadOutboxComment**](PayloadOutboxComment.md) |  | [optional] 
+**options** | [**PayloadOutboxOptions**](PayloadOutboxOptions.md) |  | [optional] 
+**send_time** | **str** | Date when to send the fax. Format: **YYYY-MM-DD HH:mm:ss +HHMM** | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

@@ -4,24 +4,21 @@ All URIs are relative to *https://restapi.fax.plus/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_accounts**](AccountsApi.md#get_accounts) | **GET** /accounts | Get account information of all members of your corporate account
-[**get_member_details**](AccountsApi.md#get_member_details) | **GET** /accounts/self/member-details/{member_id} | Get member details
+[**get_accounts**](AccountsApi.md#get_accounts) | **GET** /accounts | Get account information of all non-admin members of your corporate account.
+[**get_member_details**](AccountsApi.md#get_member_details) | **GET** /accounts/self/member-details/{member_user_id} | Get member details
 [**get_user**](AccountsApi.md#get_user) | **GET** /accounts/{user_id} | Get account information for admin or member
-[**update_member_details**](AccountsApi.md#update_member_details) | **PUT** /accounts/self/member-details/{member_id} | Modify member details
+[**update_member_details**](AccountsApi.md#update_member_details) | **PUT** /accounts/self/member-details/{member_user_id} | Modify member details
 [**update_user**](AccountsApi.md#update_user) | **PUT** /accounts/self | Modify account information
 
-
 # **get_accounts**
-> ResponseAccountList get_accounts()
+> AccountList get_accounts()
 
-Get account information of all members of your corporate account
+Get account information of all non-admin members of your corporate account.
 
 Only admin account can send request to this endpoint which returns accounts of all members
 
 ### Example
 ```python
-from __future__ import print_function
-import time
 import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
@@ -31,10 +28,12 @@ configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = faxplus.AccountsApi(faxplus.ApiClient(configuration))
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.AccountsApi(api_client)
 
 try:
-    # Get account information of all members of your corporate account
+    # Get account information of all non-admin members of your corporate account.
     api_response = api_instance.get_accounts()
     pprint(api_response)
 except ApiException as e:
@@ -46,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResponseAccountList**](ResponseAccountList.md)
+[**AccountList**](AccountList.md)
 
 ### Authorization
 
@@ -54,13 +53,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_member_details**
-> MemberDetail get_member_details(member_id)
+> MemberDetail get_member_details(member_user_id)
 
 Get member details
 
@@ -68,8 +67,6 @@ Get your member details (quota and role)
 
 ### Example
 ```python
-from __future__ import print_function
-import time
 import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
@@ -79,12 +76,14 @@ configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = faxplus.AccountsApi(faxplus.ApiClient(configuration))
-member_id = 'member_id_example' # str | 
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.AccountsApi(api_client)
+member_user_id = 'member_user_id_example' # str | Member user ID
 
 try:
     # Get member details
-    api_response = api_instance.get_member_details(member_id)
+    api_response = api_instance.get_member_details(member_user_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountsApi->get_member_details: %s\n" % e)
@@ -94,7 +93,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **member_id** | **str**|  | 
+ **member_user_id** | **str**| Member user ID | 
 
 ### Return type
 
@@ -106,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,12 +115,10 @@ Name | Type | Description  | Notes
 
 Get account information for admin or member
 
-Get account information. For members user_id can only be self. form admin it can be user_id of any <br />**In case you want to get your own account information please use *`self`* as an alias for your user_id.**
+Get account information. For members user_id can only be self. For admin it can be user_id of any corporate member
 
 ### Example
 ```python
-from __future__ import print_function
-import time
 import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
@@ -131,8 +128,10 @@ configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = faxplus.AccountsApi(faxplus.ApiClient(configuration))
-user_id = 'user_id_example' # str | 
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.AccountsApi(api_client)
+user_id = 'user_id_example' # str | User ID to get information about. For your own account use **'self'**
 
 try:
     # Get account information for admin or member
@@ -146,7 +145,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
+ **user_id** | **str**| User ID to get information about. For your own account use **&#x27;self&#x27;** | 
 
 ### Return type
 
@@ -158,22 +157,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_member_details**
-> update_member_details(member_id, payload_member_detail)
+> update_member_details(member_user_id, body=body)
 
 Modify member details
 
-One of the paramters below is needed to modify member information
+One of the parameters below is needed to modify member information
 
 ### Example
 ```python
-from __future__ import print_function
-import time
 import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
@@ -183,13 +180,15 @@ configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = faxplus.AccountsApi(faxplus.ApiClient(configuration))
-member_id = 'member_id_example' # str | 
-payload_member_detail = faxplus.MemberDetail() # MemberDetail | 
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.AccountsApi(api_client)
+member_user_id = 'member_user_id_example' # str | Member user ID
+body = faxplus.MemberDetail() # MemberDetail | Request object for making changes in member details (optional)
 
 try:
     # Modify member details
-    api_instance.update_member_details(member_id, payload_member_detail)
+    api_instance.update_member_details(member_user_id, body=body)
 except ApiException as e:
     print("Exception when calling AccountsApi->update_member_details: %s\n" % e)
 ```
@@ -198,8 +197,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **member_id** | **str**|  | 
- **payload_member_detail** | [**MemberDetail**](MemberDetail.md)|  | 
+ **member_user_id** | **str**| Member user ID | 
+ **body** | [**MemberDetail**](MemberDetail.md)| Request object for making changes in member details | [optional] 
 
 ### Return type
 
@@ -217,16 +216,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user**
-> update_user(user_id, payload_account)
+> update_user(body=body)
 
 Modify account information
 
-You can only modify your account
+Modify personal information of your account
 
 ### Example
 ```python
-from __future__ import print_function
-import time
 import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
@@ -236,13 +233,14 @@ configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = faxplus.AccountsApi(faxplus.ApiClient(configuration))
-user_id = 'user_id_example' # str | 
-payload_account = faxplus.Account() # Account | 
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.AccountsApi(api_client)
+body = faxplus.PayloadAccountModification() # PayloadAccountModification | Request object for making changes in account (optional)
 
 try:
     # Modify account information
-    api_instance.update_user(user_id, payload_account)
+    api_instance.update_user(body=body)
 except ApiException as e:
     print("Exception when calling AccountsApi->update_user: %s\n" % e)
 ```
@@ -251,8 +249,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  | 
- **payload_account** | [**Account**](Account.md)|  | 
+ **body** | [**PayloadAccountModification**](PayloadAccountModification.md)| Request object for making changes in account | [optional] 
 
 ### Return type
 

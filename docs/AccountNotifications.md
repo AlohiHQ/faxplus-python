@@ -1,11 +1,12 @@
-# AccountSettingsSendFaxRetry
+# faxplus.AccountNotifications
+Account notification settings
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**delay** | **int** |  | [optional] 
+**black_list** | [**AccountNotificationsBlacklist**](AccountNotificationsBlacklist.md) |  | [optional] 
+**settings** | [**AccountNotificationsSettings**](AccountNotificationsSettings.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 
