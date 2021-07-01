@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **comment** | [**PayloadOutboxComment**](PayloadOutboxComment.md) |  | [optional] 
 **options** | [**PayloadOutboxOptions**](PayloadOutboxOptions.md) |  | [optional] 
 **send_time** | **str** | Date when to send the fax. Format: **YYYY-MM-DD HH:mm:ss +HHMM** | [optional] 
+**return_ids** | **bool** | Return scheduled fax IDs to use for tracking and with webhooks | [optional] [default to False]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

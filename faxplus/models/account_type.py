@@ -3,7 +3,11 @@
 """
     FAX.PLUS REST API
 
-    OpenAPI spec version: 1.2.0
+    Visit https://apidoc.fax.plus for more information.
+
+    © Alohi SA (Geneva, Switzerland)
+
+    https://www.alohi.com
     Contact: info@fax.plus
 """
 

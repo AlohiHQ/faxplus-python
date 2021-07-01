@@ -1,5 +1,5 @@
 # faxplus.NumberStatus
-Status of your fax phone number e.g. active, inactive.
+Status of your fax number e.g. active, inactive.
 
 ## Enum values
 Name | Value

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **company_logo** | **str** | File name of your company logo | [optional] 
-**company_name** | **str** | Your company name in case you are corporate admin | [optional] 
+**company_name** | **str** | Your company name in case you are a corporate admin | [optional] 
 **deactivation_reason** | **str** |  | [optional] 
 **default_file_type** | [**FileType**](FileType.md) |  | [optional] 
 **role** | **str** | Role of the account in the company | [optional] 

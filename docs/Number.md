@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **id** | **str** | Number ID | 
 **is_canceled** | **bool** | True if number is canceled but not yet deleted | [optional] 
 **notifications** | [**list[NumberNotifications]**](NumberNotifications.md) |  | [optional] 
-**number** | **str** | Phone number | 
-**owner_id** | **str** | User ID of the number&#x27;s owner | 
+**number** | **str** | Fax number | 
+**owner_id** | **str** | Number owner ID | 
 **status** | [**NumberStatus**](NumberStatus.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

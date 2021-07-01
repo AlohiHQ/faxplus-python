@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **account_type** | [**AccountType**](AccountType.md) |  | 
 **creation_date** | **str** | Creation date in UTC. Format: *YYYY-MM-DD HH:mm:ss* | 
 **email** | **str** | Account email address | 
-**last_password_modification_date** | **str** | The date in which you have changed your password | [optional] 
+**last_password_modification_date** | **str** | The date on which you have changed your password | [optional] 
 **lastname** | **str** | Your last name | [optional] 
 **member_of** | **list[str]** | List of user ids that you are member of. | [optional] 
 **name** | **str** | Your first name | [optional] 

@@ -3,7 +3,11 @@
 """
     FAX.PLUS REST API
 
-    OpenAPI spec version: 1.2.0
+    Visit https://apidoc.fax.plus for more information.
+
+    © Alohi SA (Geneva, Switzerland)
+
+    https://www.alohi.com
     Contact: info@fax.plus
 """
 
@@ -43,7 +47,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://restapi.fax.plus/v1"
+        self.host = "https://restapi.fax.plus/v2"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -232,6 +236,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         return "Python SDK Debug Report:\n"\
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
-               "Version of the API: 1.2.0\n"\
-               "SDK Package Version: 1.0".\
+               "Version of the API: 2.0.0\n"\
+               "SDK Package Version: 2.0.0".\
                format(env=sys.platform, pyversion=sys.version)

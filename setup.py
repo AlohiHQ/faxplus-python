@@ -3,7 +3,11 @@
 """
     FAX.PLUS REST API
 
-    OpenAPI spec version: 1.2.0
+    Visit https://apidoc.fax.plus for more information.
+
+    © Alohi SA (Geneva, Switzerland)
+
+    https://www.alohi.com
     Contact: info@fax.plus
 """
 
@@ -12,7 +16,7 @@ from os import path
 import re
 
 NAME = "faxplus-api"
-VERSION = "1.0"
+VERSION = "2.0.0"
 # To install the library, run the following
 #
 # python setup.py install

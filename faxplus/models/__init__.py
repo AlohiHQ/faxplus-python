@@ -4,7 +4,11 @@
 """
     FAX.PLUS REST API
 
-    OpenAPI spec version: 1.2.0
+    Visit https://apidoc.fax.plus for more information.
+
+    © Alohi SA (Geneva, Switzerland)
+
+    https://www.alohi.com
     Contact: info@fax.plus
 """
 
@@ -60,4 +64,12 @@ from faxplus.models.payload_outbox_comment import PayloadOutboxComment
 from faxplus.models.payload_outbox_modification import PayloadOutboxModification
 from faxplus.models.payload_outbox_options import PayloadOutboxOptions
 from faxplus.models.retry_options import RetryOptions
+from faxplus.models.send_fax_response import SendFaxResponse
 from faxplus.models.slack_notification_mode import SlackNotificationMode
+from faxplus.models.webhook import Webhook
+from faxplus.models.webhook_callback import WebhookCallback
+from faxplus.models.webhook_callback_data import WebhookCallbackData
+from faxplus.models.webhook_callback_hook import WebhookCallbackHook
+from faxplus.models.webhook_event_type import WebhookEventType
+from faxplus.models.webhook_id import WebhookId
+from faxplus.models.webhook_list import WebhookList

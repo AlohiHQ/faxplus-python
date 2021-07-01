@@ -2,7 +2,11 @@
 """
     FAX.PLUS REST API
 
-    OpenAPI spec version: 1.2.0
+    Visit https://apidoc.fax.plus for more information.
+
+    © Alohi SA (Geneva, Switzerland)
+
+    https://www.alohi.com
     Contact: info@fax.plus
 """
 from __future__ import absolute_import
@@ -68,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'faxplus-sdk/python/1.0'
+        self.user_agent = 'faxplus-sdk/python/2.0.0'
 
     def __del__(self):
         self.pool.close()
