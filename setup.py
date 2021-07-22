@@ -16,7 +16,7 @@ from os import path
 import re
 
 NAME = "faxplus-api"
-VERSION = "2.0.0"
+VERSION = "2.0.2"
 # To install the library, run the following
 #
 # python setup.py install

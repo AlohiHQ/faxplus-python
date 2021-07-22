@@ -100,8 +100,8 @@ class PayloadOutbox(object):
         """
         if from_number is None:
             raise ValueError("Invalid value for `from_number`, must not be `None`")  # noqa: E501
-        if from_number and not re.search(r'^[+][0-9]{8,}([*]{0,10}[0-9]+)?$', from_number):  # noqa: E501
-            raise ValueError(r"Invalid value for `from_number`, must be a follow pattern or equal to `/^[+][0-9]{8,}([*]{0,10}[0-9]+)?$/`")  # noqa: E501
+        if from_number and not re.search(r'^([+][0-9]{8,}([*]{0,10}[0-9]+)?)|(no_number)|(NO_NUMBER)$', from_number):  # noqa: E501
+            raise ValueError(r"Invalid value for `from_number`, must be a follow pattern or equal to `/^([+][0-9]{8,}([*]{0,10}[0-9]+)?)|(no_number)|(NO_NUMBER)$/`")  # noqa: E501
 
         self._from_number = from_number
 

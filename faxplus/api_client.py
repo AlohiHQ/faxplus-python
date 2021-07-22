@@ -72,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'faxplus-sdk/python/2.0.0'
+        self.user_agent = 'faxplus-sdk/python/2.0.2'
 
     def __del__(self):
         self.pool.close()
