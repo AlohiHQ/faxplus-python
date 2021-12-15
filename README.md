@@ -50,10 +50,10 @@ python setup.py install --user
 Example usage:
 
 ```python
-from faxplus import ApiClient, ArchivesApi
+from faxplus import ApiClient, FaxesApi
 
 client = ApiClient(configuration)
-api = ArchivesApi()
+api = FaxesApi()
 faxes = api.list_faxes("self", category=FaxCategory.INBOX)
 ```
 
