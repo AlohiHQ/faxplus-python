@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **initiated_from** | [**OutboxInitiatedFrom**](OutboxInitiatedFrom.md) |  | [optional] 
 **ip** | **str** | IP address from which the send request originated | [optional] 
 **last_updated_status_time** | **str** | Time and date when the send request status was last updated. Format: *YYYY-MM-DD HH:mm:ss* | [optional] 
-**options** | **object** |  | [optional] 
+**options** | [**OutboxOptions**](OutboxOptions.md) |  | [optional] 
 **page_count** | **int** | Number of fax pages | [optional] 
 **retry** | [**RetryOptions**](RetryOptions.md) |  | [optional] 
 **send_time** | **str** |  | [optional] 
@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **submit_time** | **str** | Date and time when the fax was submitted for sending | [optional] 
 **to** | **list[str]** |  | [optional] 
 **uid** | **str** | User ID | 
+**cover_page** | [**OutboxCoverPage**](OutboxCoverPage.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

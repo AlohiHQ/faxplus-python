@@ -50,7 +50,8 @@ class Fax(object):
         'start_time': 'str',
         'status': 'FaxStatus',
         'submit_time': 'str',
-        'to': 'str'
+        'to': 'str',
+        'cover_page': 'FaxCoverPage'
     }
 
     attribute_map = {
@@ -76,10 +77,11 @@ class Fax(object):
         'start_time': 'start_time',
         'status': 'status',
         'submit_time': 'submit_time',
-        'to': 'to'
+        'to': 'to',
+        'cover_page': 'cover_page'
     }
 
-    def __init__(self, comment=None, cost=None, cost_details=None, description=None, direction=None, duration=None, file=None, file_name=None, from_number=None, header=None, id=None, is_read=None, is_spam=None, last_update=None, max_retry=None, owner_id=None, pages=None, retry_delay=None, scheduled_time=None, start_time=None, status=None, submit_time=None, to=None):  # noqa: E501
+    def __init__(self, comment=None, cost=None, cost_details=None, description=None, direction=None, duration=None, file=None, file_name=None, from_number=None, header=None, id=None, is_read=None, is_spam=None, last_update=None, max_retry=None, owner_id=None, pages=None, retry_delay=None, scheduled_time=None, start_time=None, status=None, submit_time=None, to=None, cover_page=None):  # noqa: E501
         """Fax - a model defined in Swagger
 
         :param str comment: Free-form comment (required)
@@ -88,8 +90,8 @@ class Fax(object):
         :param str description:
         :param FaxDirection direction:
         :param int duration:
-        :param str file:
-        :param str file_name: File name
+        :param str file: Fax file ID for the getFile handle
+        :param str file_name: Human-readable file name
         :param str from_number: Sender number. Might be a userId for faxes sent or received with free accounts
         :param str header:
         :param str id: Fax ID (required)
@@ -101,10 +103,11 @@ class Fax(object):
         :param int pages: Number of pages in the fax (required)
         :param int retry_delay: Delay between two retries
         :param str scheduled_time:
-        :param str start_time:
+        :param str start_time: Time at which faxing session started. Format: YYYY-MM-DD HH:mm:ss
         :param FaxStatus status: (required)
         :param str submit_time: Time when the fax was submitted for sending. For outgoing faxes only
         :param str to: Fax destination number. Might be a userId for faxes sent or received with free accounts
+        :param FaxCoverPage cover_page:
         """  # noqa: E501
         self._comment = None
         self._cost = None
@@ -129,6 +132,7 @@ class Fax(object):
         self._status = None
         self._submit_time = None
         self._to = None
+        self._cover_page = None
         self.discriminator = None
         self.comment = comment
         if cost is not None:
@@ -170,6 +174,8 @@ class Fax(object):
             self.submit_time = submit_time
         if to is not None:
             self.to = to
+        if cover_page is not None:
+            self.cover_page = cover_page
 
     @property
     def comment(self):
@@ -313,6 +319,7 @@ class Fax(object):
     def file(self):
         """Gets the file of this Fax.  # noqa: E501
 
+        Fax file ID for the getFile handle  # noqa: E501
 
         :return: The file of this Fax.  # noqa: E501
         :rtype: str
@@ -323,6 +330,7 @@ class Fax(object):
     def file(self, file):
         """Sets the file of this Fax.
 
+        Fax file ID for the getFile handle  # noqa: E501
 
         :param file: The file of this Fax.  # noqa: E501
         :type: str
@@ -334,7 +342,7 @@ class Fax(object):
     def file_name(self):
         """Gets the file_name of this Fax.  # noqa: E501
 
-        File name  # noqa: E501
+        Human-readable file name  # noqa: E501
 
         :return: The file_name of this Fax.  # noqa: E501
         :rtype: str
@@ -345,7 +353,7 @@ class Fax(object):
     def file_name(self, file_name):
         """Sets the file_name of this Fax.
 
-        File name  # noqa: E501
+        Human-readable file name  # noqa: E501
 
         :param file_name: The file_name of this Fax.  # noqa: E501
         :type: str
@@ -618,6 +626,7 @@ class Fax(object):
     def start_time(self):
         """Gets the start_time of this Fax.  # noqa: E501
 
+        Time at which faxing session started. Format: YYYY-MM-DD HH:mm:ss  # noqa: E501
 
         :return: The start_time of this Fax.  # noqa: E501
         :rtype: str
@@ -628,6 +637,7 @@ class Fax(object):
     def start_time(self, start_time):
         """Sets the start_time of this Fax.
 
+        Time at which faxing session started. Format: YYYY-MM-DD HH:mm:ss  # noqa: E501
 
         :param start_time: The start_time of this Fax.  # noqa: E501
         :type: str
@@ -703,6 +713,27 @@ class Fax(object):
         """
 
         self._to = to
+
+    @property
+    def cover_page(self):
+        """Gets the cover_page of this Fax.  # noqa: E501
+
+
+        :return: The cover_page of this Fax.  # noqa: E501
+        :rtype: FaxCoverPage
+        """
+        return self._cover_page
+
+    @cover_page.setter
+    def cover_page(self, cover_page):
+        """Sets the cover_page of this Fax.
+
+
+        :param cover_page: The cover_page of this Fax.  # noqa: E501
+        :type: FaxCoverPage
+        """
+
+        self._cover_page = cover_page
 
     def to_dict(self):
         """Returns the model properties as a dict"""

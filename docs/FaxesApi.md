@@ -1,74 +1,20 @@
-# faxplus.NumbersApi
+# faxplus.FaxesApi
 
 All URIs are relative to *https://restapi.fax.plus/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_number**](NumbersApi.md#get_number) | **GET** /accounts/{user_id}/numbers/{number} | Get number information
-[**list_numbers**](NumbersApi.md#list_numbers) | **GET** /accounts/{user_id}/numbers | List phone numbers
-[**revoke_number**](NumbersApi.md#revoke_number) | **DELETE** /accounts/{user_id}/numbers/{number} | Revoke number
-[**update_number**](NumbersApi.md#update_number) | **PUT** /accounts/{user_id}/numbers/{number} | Assign number
+[**delete_fax**](FaxesApi.md#delete_fax) | **DELETE** /accounts/{user_id}/faxes/{fax_id} | Delete a fax
+[**get_fax**](FaxesApi.md#get_fax) | **GET** /accounts/{user_id}/faxes/{fax_id} | Get a fax record
+[**list_faxes**](FaxesApi.md#list_faxes) | **GET** /accounts/{user_id}/faxes | List fax records
+[**update_fax**](FaxesApi.md#update_fax) | **PUT** /accounts/{user_id}/faxes/{fax_id} | Modify fax record
 
-# **get_number**
-> Number get_number(user_id, number)
+# **delete_fax**
+> delete_fax(user_id, fax_id)
 
-Get number information
+Delete a fax
 
-Get information about a single purchased/assigned fax number
-
-### Example
-```python
-import faxplus
-from faxplus.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: fax_oauth
-configuration = faxplus.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_client = faxplus.ApiClient(configuration)
-api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
-api_instance = faxplus.NumbersApi(api_client)
-user_id = 'user_id_example' # str | ID of the number owner
-number = 'number_example' # str | Fax number to get information about
-
-try:
-    # Get number information
-    api_response = api_instance.get_number(user_id, number)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling NumbersApi->get_number: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **str**| ID of the number owner | 
- **number** | **str**| Fax number to get information about | 
-
-### Return type
-
-[**Number**](Number.md)
-
-### Authorization
-
-[fax_oauth](../README.md#fax_oauth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_numbers**
-> NumberList list_numbers(user_id)
-
-List phone numbers
-
-List your purchased/assigned phone numbers. For corporate members all assigned numbers will be returned, while for the corporate admin, all purchased numbers
+Delete a specific fax record by providing its id
 
 ### Example
 ```python
@@ -83,75 +29,23 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_client = faxplus.ApiClient(configuration)
 api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
-api_instance = faxplus.NumbersApi(api_client)
-user_id = 'user_id_example' # str | ID of the user to get numbers for
+api_instance = faxplus.FaxesApi(api_client)
+user_id = 'user_id_example' # str | self or user id of a corporate member
+fax_id = 'fax_id_example' # str | 
 
 try:
-    # List phone numbers
-    api_response = api_instance.list_numbers(user_id)
-    pprint(api_response)
+    # Delete a fax
+    api_instance.delete_fax(user_id, fax_id)
 except ApiException as e:
-    print("Exception when calling NumbersApi->list_numbers: %s\n" % e)
+    print("Exception when calling FaxesApi->delete_fax: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| ID of the user to get numbers for | 
-
-### Return type
-
-[**NumberList**](NumberList.md)
-
-### Authorization
-
-[fax_oauth](../README.md#fax_oauth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **revoke_number**
-> revoke_number(user_id, number)
-
-Revoke number
-
-Revoke fax number from a corporate member. To revoke your own number use self as a user_id
-
-### Example
-```python
-import faxplus
-from faxplus.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: fax_oauth
-configuration = faxplus.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_client = faxplus.ApiClient(configuration)
-api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
-api_instance = faxplus.NumbersApi(api_client)
-user_id = 'user_id_example' # str | ID of the user to revoke the number from. Number can not be removed from the admin
-number = 'number_example' # str | Fax number to remove members from
-
-try:
-    # Revoke number
-    api_instance.revoke_number(user_id, number)
-except ApiException as e:
-    print("Exception when calling NumbersApi->revoke_number: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **str**| ID of the user to revoke the number from. Number can not be removed from the admin | 
- **number** | **str**| Fax number to remove members from | 
+ **user_id** | **str**| self or user id of a corporate member | 
+ **fax_id** | **str**|  | 
 
 ### Return type
 
@@ -168,12 +62,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_number**
-> update_number(user_id, number, body=body)
+# **get_fax**
+> Fax get_fax(user_id, fax_id)
 
-Assign number
+Get a fax record
 
-Assign fax number to a corporate member
+Get a specific fax record details like duration, pages etc.
 
 ### Example
 ```python
@@ -188,25 +82,139 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_client = faxplus.ApiClient(configuration)
 api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
-api_instance = faxplus.NumbersApi(api_client)
-user_id = 'user_id_example' # str | ID of the number owner
-number = 'number_example' # str | Fax number to update
-body = faxplus.PayloadNumberModification() # PayloadNumberModification | Request object for making changes in number object (optional)
+api_instance = faxplus.FaxesApi(api_client)
+user_id = 'user_id_example' # str | self or user id of a corporate member
+fax_id = 'fax_id_example' # str | 
 
 try:
-    # Assign number
-    api_instance.update_number(user_id, number, body=body)
+    # Get a fax record
+    api_response = api_instance.get_fax(user_id, fax_id)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling NumbersApi->update_number: %s\n" % e)
+    print("Exception when calling FaxesApi->get_fax: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**| ID of the number owner | 
- **number** | **str**| Fax number to update | 
- **body** | [**PayloadNumberModification**](PayloadNumberModification.md)| Request object for making changes in number object | [optional] 
+ **user_id** | **str**| self or user id of a corporate member | 
+ **fax_id** | **str**|  | 
+
+### Return type
+
+[**Fax**](Fax.md)
+
+### Authorization
+
+[fax_oauth](../README.md#fax_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_faxes**
+> FaxList list_faxes(user_id, category=category, after=after, before=before, limit=limit)
+
+List fax records
+
+Get your own or your subordinate's faxes list
+
+### Example
+```python
+import faxplus
+from faxplus.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: fax_oauth
+configuration = faxplus.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.FaxesApi(api_client)
+user_id = 'user_id_example' # str | self or user id of a corporate member
+category = faxplus.FaxCategory() # FaxCategory | Category parameter. Valid values: **inbox**, **sent**, **spam** (optional)
+after = 'after_example' # str | Start date to get records from that date. Format: *YYYY-MM-DD HH:mm:ss* (optional)
+before = 'before_example' # str | End date to get records before that date. Format: *YYYY-MM-DD HH:mm:ss* (optional)
+limit = 50 # int | Limit of fax records you want to get per request (optional) (default to 50)
+
+try:
+    # List fax records
+    api_response = api_instance.list_faxes(user_id, category=category, after=after, before=before, limit=limit)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FaxesApi->list_faxes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| self or user id of a corporate member | 
+ **category** | [**FaxCategory**](.md)| Category parameter. Valid values: **inbox**, **sent**, **spam** | [optional] 
+ **after** | **str**| Start date to get records from that date. Format: *YYYY-MM-DD HH:mm:ss* | [optional] 
+ **before** | **str**| End date to get records before that date. Format: *YYYY-MM-DD HH:mm:ss* | [optional] 
+ **limit** | **int**| Limit of fax records you want to get per request | [optional] [default to 50]
+
+### Return type
+
+[**FaxList**](FaxList.md)
+
+### Authorization
+
+[fax_oauth](../README.md#fax_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_fax**
+> update_fax(user_id, fax_id, body=body)
+
+Modify fax record
+
+You can modify a fax record's comment or mark it as read
+
+### Example
+```python
+import faxplus
+from faxplus.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: fax_oauth
+configuration = faxplus.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_client = faxplus.ApiClient(configuration)
+api_client.set_default_header('x-fax-clientid', 'YOUR_CLIENT_ID')
+api_instance = faxplus.FaxesApi(api_client)
+user_id = 'user_id_example' # str | self or user id of a corporate member
+fax_id = 'fax_id_example' # str | 
+body = faxplus.PayloadFaxModification() # PayloadFaxModification | Request object for making changes in a fax object (optional)
+
+try:
+    # Modify fax record
+    api_instance.update_fax(user_id, fax_id, body=body)
+except ApiException as e:
+    print("Exception when calling FaxesApi->update_fax: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **str**| self or user id of a corporate member | 
+ **fax_id** | **str**|  | 
+ **body** | [**PayloadFaxModification**](PayloadFaxModification.md)| Request object for making changes in a fax object | [optional] 
 
 ### Return type
 

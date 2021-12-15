@@ -18,7 +18,7 @@ import six
 from faxplus.models import *
 
 
-class OutboxComment(object):
+class OutboxOptions(object):
 
     """
     Attributes:
@@ -28,70 +28,72 @@ class OutboxComment(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tags': 'list[str]',
-        'text': 'str'
+        'enhancement': 'bool',
+        'retry': 'RetryOptions'
     }
 
     attribute_map = {
-        'tags': 'tags',
-        'text': 'text'
+        'enhancement': 'enhancement',
+        'retry': 'retry'
     }
 
-    def __init__(self, tags=None, text=''):  # noqa: E501
-        """OutboxComment - a model defined in Swagger
+    def __init__(self, enhancement=True, retry=None):  # noqa: E501
+        """OutboxOptions - a model defined in Swagger
 
-        :param list[str] tags:
-        :param str text:
+        :param bool enhancement: Text enhancement. Set to True to optimize fax file for text.
+        :param RetryOptions retry:
         """  # noqa: E501
-        self._tags = None
-        self._text = None
+        self._enhancement = None
+        self._retry = None
         self.discriminator = None
-        if tags is not None:
-            self.tags = tags
-        if text is not None:
-            self.text = text
+        if enhancement is not None:
+            self.enhancement = enhancement
+        if retry is not None:
+            self.retry = retry
 
     @property
-    def tags(self):
-        """Gets the tags of this OutboxComment.  # noqa: E501
+    def enhancement(self):
+        """Gets the enhancement of this OutboxOptions.  # noqa: E501
 
+        Text enhancement. Set to True to optimize fax file for text.  # noqa: E501
 
-        :return: The tags of this OutboxComment.  # noqa: E501
-        :rtype: list[str]
+        :return: The enhancement of this OutboxOptions.  # noqa: E501
+        :rtype: bool
         """
-        return self._tags
+        return self._enhancement
 
-    @tags.setter
-    def tags(self, tags):
-        """Sets the tags of this OutboxComment.
+    @enhancement.setter
+    def enhancement(self, enhancement):
+        """Sets the enhancement of this OutboxOptions.
 
+        Text enhancement. Set to True to optimize fax file for text.  # noqa: E501
 
-        :param tags: The tags of this OutboxComment.  # noqa: E501
-        :type: list[str]
+        :param enhancement: The enhancement of this OutboxOptions.  # noqa: E501
+        :type: bool
         """
 
-        self._tags = tags
+        self._enhancement = enhancement
 
     @property
-    def text(self):
-        """Gets the text of this OutboxComment.  # noqa: E501
+    def retry(self):
+        """Gets the retry of this OutboxOptions.  # noqa: E501
 
 
-        :return: The text of this OutboxComment.  # noqa: E501
-        :rtype: str
+        :return: The retry of this OutboxOptions.  # noqa: E501
+        :rtype: RetryOptions
         """
-        return self._text
+        return self._retry
 
-    @text.setter
-    def text(self, text):
-        """Sets the text of this OutboxComment.
+    @retry.setter
+    def retry(self, retry):
+        """Sets the retry of this OutboxOptions.
 
 
-        :param text: The text of this OutboxComment.  # noqa: E501
-        :type: str
+        :param retry: The retry of this OutboxOptions.  # noqa: E501
+        :type: RetryOptions
         """
 
-        self._text = text
+        self._retry = retry
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -114,7 +116,7 @@ class OutboxComment(object):
                 ))
             else:
                 result[attr] = value
-        if issubclass(OutboxComment, dict):
+        if issubclass(OutboxOptions, dict):
             for key, value in self.items():
                 result[key] = value
 
@@ -130,7 +132,7 @@ class OutboxComment(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, OutboxComment):
+        if not isinstance(other, OutboxOptions):
             return False
 
         return self.__dict__ == other.__dict__

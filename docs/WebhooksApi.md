@@ -1,6 +1,6 @@
 # faxplus.WebhooksApi
 
-All URIs are relative to *https://restapi.fax.plus/v2*
+All URIs are relative to *https://restapi.fax.plus/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Register new webhook
 
-Register a new webhook which will be called on a specific event
+Register a new webhook which will be called on a specific event. See the WebhookCallback model
 
 ### Example
 ```python

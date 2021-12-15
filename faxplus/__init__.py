@@ -17,7 +17,7 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from faxplus.api.accounts_api import AccountsApi
-from faxplus.api.archives_api import ArchivesApi
+from faxplus.api.faxes_api import FaxesApi
 from faxplus.api.files_api import FilesApi
 from faxplus.api.numbers_api import NumbersApi
 from faxplus.api.outbox_api import OutboxApi
@@ -43,10 +43,12 @@ from faxplus.models.account_settings_send_fax import AccountSettingsSendFax
 from faxplus.models.account_status import AccountStatus
 from faxplus.models.account_type import AccountType
 from faxplus.models.binary import Binary
+from faxplus.models.cover_page_flags import CoverPageFlags
 from faxplus.models.error import Error
 from faxplus.models.fax import Fax
 from faxplus.models.fax_category import FaxCategory
 from faxplus.models.fax_cost_details import FaxCostDetails
+from faxplus.models.fax_cover_page import FaxCoverPage
 from faxplus.models.fax_direction import FaxDirection
 from faxplus.models.fax_list import FaxList
 from faxplus.models.fax_list_data import FaxListData
@@ -61,19 +63,19 @@ from faxplus.models.number_notifications import NumberNotifications
 from faxplus.models.number_status import NumberStatus
 from faxplus.models.outbox import Outbox
 from faxplus.models.outbox_comment import OutboxComment
+from faxplus.models.outbox_cover_page import OutboxCoverPage
 from faxplus.models.outbox_file_changes import OutboxFileChanges
 from faxplus.models.outbox_files import OutboxFiles
 from faxplus.models.outbox_initiated_from import OutboxInitiatedFrom
 from faxplus.models.outbox_list import OutboxList
+from faxplus.models.outbox_options import OutboxOptions
 from faxplus.models.outbox_status import OutboxStatus
 from faxplus.models.outbox_status_changes import OutboxStatusChanges
 from faxplus.models.payload_account_modification import PayloadAccountModification
 from faxplus.models.payload_fax_modification import PayloadFaxModification
 from faxplus.models.payload_number_modification import PayloadNumberModification
 from faxplus.models.payload_outbox import PayloadOutbox
-from faxplus.models.payload_outbox_comment import PayloadOutboxComment
 from faxplus.models.payload_outbox_modification import PayloadOutboxModification
-from faxplus.models.payload_outbox_options import PayloadOutboxOptions
 from faxplus.models.retry_options import RetryOptions
 from faxplus.models.send_fax_response import SendFaxResponse
 from faxplus.models.slack_notification_mode import SlackNotificationMode

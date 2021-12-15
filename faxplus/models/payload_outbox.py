@@ -31,10 +31,11 @@ class PayloadOutbox(object):
         'from_number': 'str',
         'to': 'list[str]',
         'files': 'list[str]',
-        'comment': 'PayloadOutboxComment',
-        'options': 'PayloadOutboxOptions',
+        'comment': 'OutboxComment',
+        'options': 'OutboxOptions',
         'send_time': 'str',
-        'return_ids': 'bool'
+        'return_ids': 'bool',
+        'cover_page': 'OutboxCoverPage'
     }
 
     attribute_map = {
@@ -44,19 +45,21 @@ class PayloadOutbox(object):
         'comment': 'comment',
         'options': 'options',
         'send_time': 'send_time',
-        'return_ids': 'return_ids'
+        'return_ids': 'return_ids',
+        'cover_page': 'cover_page'
     }
 
-    def __init__(self, from_number=None, to=None, files=None, comment=None, options=None, send_time=None, return_ids=False):  # noqa: E501
+    def __init__(self, from_number=None, to=None, files=None, comment=None, options=None, send_time=None, return_ids=False, cover_page=None):  # noqa: E501
         """PayloadOutbox - a model defined in Swagger
 
         :param str from_number: Number to use for sending the fax (required)
         :param list[str] to: List of fax destination numbers (required)
         :param list[str] files: List of file names to send. Files should be uploaded beforehand. (required)
-        :param PayloadOutboxComment comment:
-        :param PayloadOutboxOptions options:
+        :param OutboxComment comment:
+        :param OutboxOptions options:
         :param str send_time: Date when to send the fax. Format: **YYYY-MM-DD HH:mm:ss +HHMM**
         :param bool return_ids: Return scheduled fax IDs to use for tracking and with webhooks
+        :param OutboxCoverPage cover_page:
         """  # noqa: E501
         self._from_number = None
         self._to = None
@@ -65,6 +68,7 @@ class PayloadOutbox(object):
         self._options = None
         self._send_time = None
         self._return_ids = None
+        self._cover_page = None
         self.discriminator = None
         self.from_number = from_number
         self.to = to
@@ -77,6 +81,8 @@ class PayloadOutbox(object):
             self.send_time = send_time
         if return_ids is not None:
             self.return_ids = return_ids
+        if cover_page is not None:
+            self.cover_page = cover_page
 
     @property
     def from_number(self):
@@ -161,7 +167,7 @@ class PayloadOutbox(object):
 
 
         :return: The comment of this PayloadOutbox.  # noqa: E501
-        :rtype: PayloadOutboxComment
+        :rtype: OutboxComment
         """
         return self._comment
 
@@ -171,7 +177,7 @@ class PayloadOutbox(object):
 
 
         :param comment: The comment of this PayloadOutbox.  # noqa: E501
-        :type: PayloadOutboxComment
+        :type: OutboxComment
         """
 
         self._comment = comment
@@ -182,7 +188,7 @@ class PayloadOutbox(object):
 
 
         :return: The options of this PayloadOutbox.  # noqa: E501
-        :rtype: PayloadOutboxOptions
+        :rtype: OutboxOptions
         """
         return self._options
 
@@ -192,7 +198,7 @@ class PayloadOutbox(object):
 
 
         :param options: The options of this PayloadOutbox.  # noqa: E501
-        :type: PayloadOutboxOptions
+        :type: OutboxOptions
         """
 
         self._options = options
@@ -244,6 +250,27 @@ class PayloadOutbox(object):
         """
 
         self._return_ids = return_ids
+
+    @property
+    def cover_page(self):
+        """Gets the cover_page of this PayloadOutbox.  # noqa: E501
+
+
+        :return: The cover_page of this PayloadOutbox.  # noqa: E501
+        :rtype: OutboxCoverPage
+        """
+        return self._cover_page
+
+    @cover_page.setter
+    def cover_page(self, cover_page):
+        """Sets the cover_page of this PayloadOutbox.
+
+
+        :param cover_page: The cover_page of this PayloadOutbox.  # noqa: E501
+        :type: OutboxCoverPage
+        """
+
+        self._cover_page = cover_page
 
     def to_dict(self):
         """Returns the model properties as a dict"""

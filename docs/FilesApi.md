@@ -1,6 +1,6 @@
 # faxplus.FilesApi
 
-All URIs are relative to *https://restapi.fax.plus/v2*
+All URIs are relative to *https://restapi.fax.plus/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

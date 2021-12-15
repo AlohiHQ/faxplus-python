@@ -14,12 +14,14 @@
 from enum import Enum
 
 
-class WebhookEventType(str, Enum):
+class CoverPageFlags(str, Enum):
     """
-    Webhook event type
+    Allowed flags for the cover page
     """
-    RECEIVED = "fax_received",
-    SENT = "fax_sent"
+    URGENT = "urgent",
+    FOR_REVIEW = "for_review",
+    PLEASE_REPLY = "please_reply",
+    CONFIDENTIAL = "confidential"
 
     def __str__(self):
         return str(self.value)

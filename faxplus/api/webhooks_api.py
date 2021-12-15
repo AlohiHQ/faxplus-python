@@ -33,7 +33,7 @@ class WebhooksApi(object):
     def create_webhook(self, body=None, **kwargs):  # noqa: E501
         """Register new webhook  # noqa: E501
 
-        Register a new webhook which will be called on a specific event  # noqa: E501
+        Register a new webhook which will be called on a specific event. See the WebhookCallback model  # noqa: E501
         >>> result = WebhooksApi().create_webhook(body, )
 
         This method makes a synchronous HTTP request by default. To make an
@@ -61,7 +61,7 @@ class WebhooksApi(object):
         The difference between this method and `create_webhook` is that this method may return not only the data,
         but also HTTP status and headers.
 
-        Register a new webhook which will be called on a specific event  # noqa: E501
+        Register a new webhook which will be called on a specific event. See the WebhookCallback model  # noqa: E501
         >>> result = WebhooksApi().create_webhook_with_http_info(body, )
 
         This method makes a synchronous HTTP request by default. To make an

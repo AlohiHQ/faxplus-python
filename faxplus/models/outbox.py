@@ -38,7 +38,7 @@ class Outbox(object):
         'initiated_from': 'OutboxInitiatedFrom',
         'ip': 'str',
         'last_updated_status_time': 'str',
-        'options': 'object',
+        'options': 'OutboxOptions',
         'page_count': 'int',
         'retry': 'RetryOptions',
         'send_time': 'str',
@@ -48,7 +48,8 @@ class Outbox(object):
         'status_changes': 'list[OutboxStatusChanges]',
         'submit_time': 'str',
         'to': 'list[str]',
-        'uid': 'str'
+        'uid': 'str',
+        'cover_page': 'OutboxCoverPage'
     }
 
     attribute_map = {
@@ -72,10 +73,11 @@ class Outbox(object):
         'status_changes': 'status_changes',
         'submit_time': 'submit_time',
         'to': 'to',
-        'uid': 'uid'
+        'uid': 'uid',
+        'cover_page': 'cover_page'
     }
 
-    def __init__(self, comment=None, contact_name=None, designated_src=None, extra_info=None, file_changes=None, files=None, id=None, initiated_from=None, ip=None, last_updated_status_time=None, options=None, page_count=None, retry=None, send_time=None, should_enhance=None, src=None, status=None, status_changes=None, submit_time=None, to=None, uid=None):  # noqa: E501
+    def __init__(self, comment=None, contact_name=None, designated_src=None, extra_info=None, file_changes=None, files=None, id=None, initiated_from=None, ip=None, last_updated_status_time=None, options=None, page_count=None, retry=None, send_time=None, should_enhance=None, src=None, status=None, status_changes=None, submit_time=None, to=None, uid=None, cover_page=None):  # noqa: E501
         """Outbox - a model defined in Swagger
 
         :param OutboxComment comment:
@@ -88,7 +90,7 @@ class Outbox(object):
         :param OutboxInitiatedFrom initiated_from:
         :param str ip: IP address from which the send request originated
         :param str last_updated_status_time: Time and date when the send request status was last updated. Format: *YYYY-MM-DD HH:mm:ss*
-        :param object options:
+        :param OutboxOptions options:
         :param int page_count: Number of fax pages
         :param RetryOptions retry:
         :param str send_time:
@@ -99,6 +101,7 @@ class Outbox(object):
         :param str submit_time: Date and time when the fax was submitted for sending
         :param list[str] to:
         :param str uid: User ID (required)
+        :param OutboxCoverPage cover_page:
         """  # noqa: E501
         self._comment = None
         self._contact_name = None
@@ -121,6 +124,7 @@ class Outbox(object):
         self._submit_time = None
         self._to = None
         self._uid = None
+        self._cover_page = None
         self.discriminator = None
         if comment is not None:
             self.comment = comment
@@ -161,6 +165,8 @@ class Outbox(object):
         if to is not None:
             self.to = to
         self.uid = uid
+        if cover_page is not None:
+            self.cover_page = cover_page
 
     @property
     def comment(self):
@@ -390,7 +396,7 @@ class Outbox(object):
 
 
         :return: The options of this Outbox.  # noqa: E501
-        :rtype: object
+        :rtype: OutboxOptions
         """
         return self._options
 
@@ -400,7 +406,7 @@ class Outbox(object):
 
 
         :param options: The options of this Outbox.  # noqa: E501
-        :type: object
+        :type: OutboxOptions
         """
 
         self._options = options
@@ -626,6 +632,27 @@ class Outbox(object):
             raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
+
+    @property
+    def cover_page(self):
+        """Gets the cover_page of this Outbox.  # noqa: E501
+
+
+        :return: The cover_page of this Outbox.  # noqa: E501
+        :rtype: OutboxCoverPage
+        """
+        return self._cover_page
+
+    @cover_page.setter
+    def cover_page(self, cover_page):
+        """Sets the cover_page of this Outbox.
+
+
+        :param cover_page: The cover_page of this Outbox.  # noqa: E501
+        :type: OutboxCoverPage
+        """
+
+        self._cover_page = cover_page
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -30,36 +30,36 @@ class WebhookCallbackHook(object):
     swagger_types = {
         'id': 'str',
         'event': 'str',
-        'event_type': 'str',
+        'event_time': 'str',
         'target': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'event': 'event',
-        'event_type': 'event_type',
+        'event_time': 'event_time',
         'target': 'target'
     }
 
-    def __init__(self, id=None, event=None, event_type=None, target=None):  # noqa: E501
+    def __init__(self, id=None, event=None, event_time=None, target=None):  # noqa: E501
         """WebhookCallbackHook - a model defined in Swagger
 
         :param str id: Fax ID
         :param str event: Event type
-        :param str event_type: Time of the event
+        :param str event_time: Time of the event. Format: YYYY-MM-DD HH:mm:ss
         :param str target: Configured URL target for this webhook
         """  # noqa: E501
         self._id = None
         self._event = None
-        self._event_type = None
+        self._event_time = None
         self._target = None
         self.discriminator = None
         if id is not None:
             self.id = id
         if event is not None:
             self.event = event
-        if event_type is not None:
-            self.event_type = event_type
+        if event_time is not None:
+            self.event_time = event_time
         if target is not None:
             self.target = target
 
@@ -116,27 +116,27 @@ class WebhookCallbackHook(object):
         self._event = event
 
     @property
-    def event_type(self):
-        """Gets the event_type of this WebhookCallbackHook.  # noqa: E501
+    def event_time(self):
+        """Gets the event_time of this WebhookCallbackHook.  # noqa: E501
 
-        Time of the event  # noqa: E501
+        Time of the event. Format: YYYY-MM-DD HH:mm:ss  # noqa: E501
 
-        :return: The event_type of this WebhookCallbackHook.  # noqa: E501
+        :return: The event_time of this WebhookCallbackHook.  # noqa: E501
         :rtype: str
         """
-        return self._event_type
+        return self._event_time
 
-    @event_type.setter
-    def event_type(self, event_type):
-        """Sets the event_type of this WebhookCallbackHook.
+    @event_time.setter
+    def event_time(self, event_time):
+        """Sets the event_time of this WebhookCallbackHook.
 
-        Time of the event  # noqa: E501
+        Time of the event. Format: YYYY-MM-DD HH:mm:ss  # noqa: E501
 
-        :param event_type: The event_type of this WebhookCallbackHook.  # noqa: E501
+        :param event_time: The event_time of this WebhookCallbackHook.  # noqa: E501
         :type: str
         """
 
-        self._event_type = event_type
+        self._event_time = event_time
 
     @property
     def target(self):
