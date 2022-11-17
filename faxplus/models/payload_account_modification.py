@@ -153,8 +153,6 @@ class PayloadAccountModification(object):
         :param lastname: The lastname of this PayloadAccountModification.  # noqa: E501
         :type: str
         """
-        if lastname and not re.search(r'^[^<>{}%!@#$^&*]*$', lastname):  # noqa: E501
-            raise ValueError(r"Invalid value for `lastname`, must be a follow pattern or equal to `/^[^<>{}%!@#$^&*]*$/`")  # noqa: E501
 
         self._lastname = lastname
 
@@ -178,8 +176,6 @@ class PayloadAccountModification(object):
         :param name: The name of this PayloadAccountModification.  # noqa: E501
         :type: str
         """
-        if name and not re.search(r'^[^<>{}%!@#$^&*]+$', name):  # noqa: E501
-            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[^<>{}%!@#$^&*]+$/`")  # noqa: E501
 
         self._name = name
 

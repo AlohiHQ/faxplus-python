@@ -61,4 +61,4 @@ faxes = api.list_faxes("self", category=FaxCategory.INBOX)
 Visit the full API reference at [apidoc.fax.plus](https://apidoc.fax.plus).
 
 ## Author
-© 2021 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
+© 2022 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
