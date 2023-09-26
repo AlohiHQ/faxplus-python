@@ -50,8 +50,11 @@ python setup.py install --user
 Example usage:
 
 ```python
-from faxplus import ApiClient, FaxesApi
+from faxplus import ApiClient, Configuration, FaxesApi
 
+
+configuration = Configuration()
+configuration.access_token = "YOUR_ACCESS_TOKEN"
 client = ApiClient(configuration)
 api = FaxesApi()
 faxes = api.list_faxes("self", category=FaxCategory.INBOX)
@@ -61,4 +64,4 @@ faxes = api.list_faxes("self", category=FaxCategory.INBOX)
 Visit the full API reference at [apidoc.fax.plus](https://apidoc.fax.plus).
 
 ## Author
-© 2022 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
+© 2023 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
