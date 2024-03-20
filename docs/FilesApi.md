@@ -21,7 +21,7 @@ import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: fax_oauth
+# Configure access token for authorization: OAuth2, PAT
 configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[fax_oauth](../README.md#fax_oauth)
+[OAuth2](../README.md#OAuth2), [PAT](../README.md#PAT)
 
 ### HTTP request headers
 
@@ -75,7 +75,7 @@ import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: fax_oauth
+# Configure access token for authorization: OAuth2, PAT
 configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[fax_oauth](../README.md#fax_oauth)
+[OAuth2](../README.md#OAuth2), [PAT](../README.md#PAT)
 
 ### HTTP request headers
 
@@ -131,7 +131,7 @@ import faxplus
 from faxplus.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: fax_oauth
+# Configure access token for authorization: OAuth2, PAT
 configuration = faxplus.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[fax_oauth](../README.md#fax_oauth)
+[OAuth2](../README.md#OAuth2), [PAT](../README.md#PAT)
 
 ### HTTP request headers
 

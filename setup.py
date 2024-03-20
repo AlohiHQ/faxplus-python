@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 
@@ -16,7 +16,7 @@ from os import path
 import re
 
 NAME = "faxplus-api"
-VERSION = "3.0.3"
+VERSION = "3.0.4"
 # To install the library, run the following
 #
 # python setup.py install
@@ -35,11 +35,11 @@ long_description = re.sub(r'### Documentation For Models.*#', '#', long_descript
 setup(
     name=NAME,
     version=VERSION,
-    description="FAX.PLUS REST API",
+    description="Fax.Plus REST API",
     author="Alohi SA",
     author_email="info@fax.plus",
     url="https://github.com/alohi/faxplus-python",
-    keywords=["Swagger", "FAX.PLUS REST API"],
+    keywords=["Swagger", "Fax.Plus REST API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,

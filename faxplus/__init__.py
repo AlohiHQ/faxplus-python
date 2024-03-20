@@ -3,7 +3,7 @@
 # flake8: noqa
 
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 

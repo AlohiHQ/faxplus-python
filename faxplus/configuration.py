@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 
@@ -219,7 +219,14 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
-            'fax_oauth':
+            'OAuth2':
+                {
+                    'type': 'oauth2',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': 'Bearer ' + self.access_token
+                },
+            'PAT':
                 {
                     'type': 'oauth2',
                     'in': 'header',
@@ -237,5 +244,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 3.0.3\n"\
-               "SDK Package Version: 3.0.3".\
+               "SDK Package Version: 3.0.4".\
                format(env=sys.platform, pyversion=sys.version)

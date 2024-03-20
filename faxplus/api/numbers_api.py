@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 
@@ -106,7 +106,7 @@ class NumbersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['fax_oauth']  # noqa: E501
+        auth_settings = ['OAuth2', 'PAT']  # noqa: E501
 
         return self.api_client.call_api(
             '/accounts/{user_id}/numbers/{number}', 'GET',
@@ -193,7 +193,7 @@ class NumbersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['fax_oauth']  # noqa: E501
+        auth_settings = ['OAuth2', 'PAT']  # noqa: E501
 
         return self.api_client.call_api(
             '/accounts/{user_id}/numbers', 'GET',
@@ -287,7 +287,7 @@ class NumbersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['fax_oauth']  # noqa: E501
+        auth_settings = ['OAuth2', 'PAT']  # noqa: E501
 
         return self.api_client.call_api(
             '/accounts/{user_id}/numbers/{number}', 'DELETE',
@@ -389,7 +389,7 @@ class NumbersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['fax_oauth']  # noqa: E501
+        auth_settings = ['OAuth2', 'PAT']  # noqa: E501
 
         return self.api_client.call_api(
             '/accounts/{user_id}/numbers/{number}', 'PUT',

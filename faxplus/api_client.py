@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    FAX.PLUS REST API
+    Fax.Plus REST API
 
     Visit https://apidoc.fax.plus for more information.
 
@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 
 
 class ApiClient(object):
-    """API client for the FAX.PLUS REST API.
+    """API client for the Fax.Plus REST API.
 
     In most cases you don't need to call this class' methods directly, except for the constructor.
 
@@ -72,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'faxplus-sdk/python/3.0.3'
+        self.user_agent = 'faxplus-sdk/python/3.0.4'
 
     def __del__(self):
         self.pool.close()

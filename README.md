@@ -1,4 +1,4 @@
-# FAX.PLUS Python SDK
+# Fax.Plus Python SDK
 
 <p>
   <h4>Made for third-party developers and organizations to send and receive faxes from their own software or application.</h4>
@@ -52,7 +52,6 @@ Example usage:
 ```python
 from faxplus import ApiClient, Configuration, FaxesApi
 
-
 configuration = Configuration()
 configuration.access_token = "YOUR_ACCESS_TOKEN"
 client = ApiClient(configuration)
@@ -64,4 +63,4 @@ faxes = api.list_faxes("self", category=FaxCategory.INBOX)
 Visit the full API reference at [apidoc.fax.plus](https://apidoc.fax.plus).
 
 ## Author
-© 2023 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
+© 2024 Alohi (Geneva, Switzerland) - [Alohi.com](https://alohi.com)
